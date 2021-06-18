@@ -12,13 +12,14 @@ from datetime import datetime as dt
 st.set_page_config(layout="wide")
 
 st.title('DataCracy ATOM Tiến Độ Lớp Học')
-with open('./env_variable.json','r') as j:
-    json_data = json.load(j)
+#with open('./env_variable.json','r') as j:
+#    json_data = json.load(j)
 
-#SLACK_BEARER_TOKEN = os.environ.get('SLACK_BEARER_TOKEN') ## Get in setting of Streamlit Share
-SLACK_BEARER_TOKEN = json_data['SLACK_BEARER_TOKEN']
+SLACK_BEARER_TOKEN = st.secrets["SLACK_BEARER_TOKEN"] ## Get in setting of Streamlit Share
+#SLACK_BEARER_TOKEN = json_data['SLACK_BEARER_TOKEN']
 DTC_GROUPS_URL = ('https://raw.githubusercontent.com/anhdanggit/atom-assignments/main/data/datacracy_groups.csv')
 #st.write(json_data['SLACK_BEARER_TOKEN'])
+
 
 @st.cache
 def load_users_df():
