@@ -119,7 +119,7 @@ def process_msg_data(msg_df, user_df, channel_df):
 user_df = load_users_df()
 channel_df = load_channel_df()
 msg_df = load_msg_dict()
-
+msg_df = process_msg_data(msg_df, user_df, channel_df)
 #st.write(process_msg_data(msg_df, user_df, channel_df))
 
 
@@ -195,4 +195,4 @@ if valid_user_id:
 else:
     st.markdown('Không tìm thấy Mã Số {}'.format(user_id))
 
-## Run: streamlit run streamlit/datacracy_slack.py
+#streamlit run streamlit/datacracy_slack.py
