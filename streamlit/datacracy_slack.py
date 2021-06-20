@@ -108,9 +108,9 @@ def process_msg_data(msg_df, user_df, channel_df):
     ## Merge for nice channel name
     msg_df = msg_df.merge(channel_df[['channel_id','channel_name','created_at']], how='left',on='channel_id')
     ## Format datetime cols
-    msg_df['created_at'] = msg_df['created_at'].dt.strftime('%Y-%m-%d')
-    msg_df['msg_date'] = msg_df['msg_ts'].dt.strftime('%Y-%m-%d')
-    msg_df['msg_time'] = msg_df['msg_ts'].dt.strftime('%H:%M')
+    #msg_df['created_at'] = msg_df['created_at'].dt.strftime("%Y-%m-%d")
+    msg_df['msg_date'] = msg_df['msg_ts'].dt.strftime("%Y-%m-%d")
+    msg_df['msg_time'] = msg_df['msg_ts'].dt.strftime("%H:%M")
     msg_df['wordcount'] = msg_df.text.apply(lambda s: len(s.split()))
     return msg_df
 
